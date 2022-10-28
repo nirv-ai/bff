@@ -38,7 +38,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "es2017",
-    "types": ["express", "node", "ramda", "dotenv"],
+    "types": ["express", "node", "ramda", "dotenv", "body-parser"],
     "useUnknownInCatchVariables": true
   }
 }
