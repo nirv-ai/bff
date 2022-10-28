@@ -275,7 +275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-parser@npm:*, @types/body-parser@npm:^1":
+"@types/body-parser@npm:*":
   version: 1.19.2
   resolution: "@types/body-parser@npm:1.19.2"
   dependencies:
@@ -294,10 +294,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cors@npm:^2":
-  version: 2.8.12
-  resolution: "@types/cors@npm:2.8.12"
-  checksum: 8c45f112c7d1d2d831b4b266f2e6ed33a1887a35dcbfe2a18b28370751fababb7cd045e745ef84a523c33a25932678097bf79afaa367c6cb3fa0daa7a6438257
+"@types/cookie-parser@npm:^1":
+  version: 1.4.3
+  resolution: "@types/cookie-parser@npm:1.4.3"
+  dependencies:
+    "@types/express": "*"
+  checksum: f390f3af1b1711190dee2c2ecd9af33af81fbde8d81ee820dadb6fe1e0d80c3faba40af37c6ed36fb88b04b64870f6a021f7e9edceecd17c42fe22abe0af5005
   languageName: node
   linkType: hard
 
@@ -501,6 +503,16 @@ __metadata:
   version: 6.0.1
   resolution: "@types/swagger-jsdoc@npm:6.0.1"
   checksum: c15fcbf7415d7da6bfe908a44160a96ed9706844f74187f3424a6e65f822e08bc4f26e0fffd3bedb0f1eff60d8618952d105f31c0742df8c94e6c6b0fa9de59a
+  languageName: node
+  linkType: hard
+
+"@types/swagger-ui-express@npm:^4":
+  version: 4.1.3
+  resolution: "@types/swagger-ui-express@npm:4.1.3"
+  dependencies:
+    "@types/express": "*"
+    "@types/serve-static": "*"
+  checksum: 1c990fa8c158f699c5443245383daef2c4b47efce715c105e67f9b88447cf23663774393fdeea7d5a6e97a83d6959b09129f19c4abca64abdb7db74517162295
   languageName: node
   linkType: hard
 
@@ -1064,8 +1076,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bff@workspace:."
   dependencies:
-    "@types/body-parser": ^1
-    "@types/cors": ^2
+    "@types/cookie-parser": ^1
     "@types/dotenv": ^8.2.0
     "@types/express": 4.17.14
     "@types/express-session": ^1
@@ -1075,12 +1086,12 @@ __metadata:
     "@types/node": ^18.11.7
     "@types/ramda": 0.28.18
     "@types/swagger-jsdoc": ^6
+    "@types/swagger-ui-express": ^4
     "@types/validator": ^13
     "@typescript-eslint/eslint-plugin": ^5.41.0
     "@typescript-eslint/parser": ^5.41.0
-    body-parser: ^1.20.1
     concurrently: 7.5.0
-    cors: ^2.8.5
+    cookie-parser: ^1.4.6
     dotenv: 16.0.3
     eslint: ^8.26.0
     eslint-config-prettier: 8.5.0
@@ -1094,10 +1105,12 @@ __metadata:
     multer: ^1.4.5-lts.1
     nodemon: 2.0.20
     pg-promise: ^10.12.1
+    pino: ^8.7.0
     pino-http: ^8.2.1
     prettier: 2.7.1
     ramda: 0.28.0
     swagger-jsdoc: ^6.2.5
+    swagger-ui-express: ^4.5.0
     typescript: 4.8.4
     validator: ^13.7.0
     webpack: ^5.74.0
@@ -1111,7 +1124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.1, body-parser@npm:^1.20.1":
+"body-parser@npm:1.20.1":
   version: 1.20.1
   resolution: "body-parser@npm:1.20.1"
   dependencies:
@@ -1516,10 +1529,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie-parser@npm:^1.4.6":
+  version: 1.4.6
+  resolution: "cookie-parser@npm:1.4.6"
+  dependencies:
+    cookie: 0.4.1
+    cookie-signature: 1.0.6
+  checksum: 1e5a63aa82e8eb4e02d2977c6902983dee87b02e87ec5ec43ac3cb1e72da354003716570cd5190c0ad9e8a454c9d3237f4ad6e2f16d0902205a96a1c72b77ba5
+  languageName: node
+  linkType: hard
+
 "cookie-signature@npm:1.0.6":
   version: 1.0.6
   resolution: "cookie-signature@npm:1.0.6"
   checksum: f4e1b0a98a27a0e6e66fd7ea4e4e9d8e038f624058371bf4499cfcd8f3980be9a121486995202ba3fca74fbed93a407d6d54d43a43f96fd28d0bd7a06761591a
+  languageName: node
+  linkType: hard
+
+"cookie@npm:0.4.1":
+  version: 0.4.1
+  resolution: "cookie@npm:0.4.1"
+  checksum: bd7c47f5d94ab70ccdfe8210cde7d725880d2fcda06d8e375afbdd82de0c8d3b73541996e9ce57d35f67f672c4ee6d60208adec06b3c5fc94cebb85196084cf8
   languageName: node
   linkType: hard
 
@@ -1541,16 +1571,6 @@ __metadata:
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
   checksum: 9de8597363a8e9b9952491ebe18167e3b36e7707569eed0ebf14f8bba773611376466ae34575bca8cfe3c767890c859c74056084738f09d4e4a6f902b2ad7d99
-  languageName: node
-  linkType: hard
-
-"cors@npm:^2.8.5":
-  version: 2.8.5
-  resolution: "cors@npm:2.8.5"
-  dependencies:
-    object-assign: ^4
-    vary: ^1
-  checksum: ced838404ccd184f61ab4fdc5847035b681c90db7ac17e428f3d81d69e2989d2b680cc254da0e2554f5ed4f8a341820a1ce3d1c16b499f6e2f47a1b9b07b5006
   languageName: node
   linkType: hard
 
@@ -3401,7 +3421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4, object-assign@npm:^4.1.1":
+"object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -3715,7 +3735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^8.0.0":
+"pino@npm:^8.0.0, pino@npm:^8.7.0":
   version: 8.7.0
   resolution: "pino@npm:8.7.0"
   dependencies:
@@ -4520,6 +4540,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swagger-ui-dist@npm:>=4.11.0":
+  version: 4.15.2
+  resolution: "swagger-ui-dist@npm:4.15.2"
+  checksum: 218415ab16c43a4c55be0fad4b3c3b12bc97c6e8957b387616befcb21d9810a97f6143b5f238d3c2f870c73d6b505ff8588c04148bfe5a0762acaf6826d12c74
+  languageName: node
+  linkType: hard
+
+"swagger-ui-express@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "swagger-ui-express@npm:4.5.0"
+  dependencies:
+    swagger-ui-dist: ">=4.11.0"
+  peerDependencies:
+    express: ">=4.0.0"
+  checksum: 67f1725bceea2142554f57b50e7ac03acb55f20f893da5a68bc806d4fec6b5dffa1b59e3aba09ac0e50f049f3719f71290afee556a0957e11ee13a27e652816d
+  languageName: node
+  linkType: hard
+
 "tapable@npm:^2.1.1, tapable@npm:^2.2.0":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
@@ -4813,7 +4851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vary@npm:^1, vary@npm:~1.1.2":
+"vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
