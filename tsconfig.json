@@ -1,0 +1,44 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["**/node_modules", "**/.*/"],
+  "watchOptions": {
+    "excludeDirectories": ["**/node_modules", "**/.yarn", "**/.git", "**/build"]
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "baseUrl": "src",
+    "checkJs": true,
+    "declaration": false,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": ["esnext", "dom"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "outDir": "./build",
+    "preserveConstEnums": true,
+    // "preserveValueImports": true, // TODO: set module to ES2020
+    "pretty": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "target": "es2017",
+    "types": ["express", "node", "ramda", "dotenv"],
+    "useUnknownInCatchVariables": true
+  }
+}
