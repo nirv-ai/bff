@@ -4,9 +4,8 @@
   "private": true,
   "packageManager": "yarn@3.2.4",
   "scripts": {
-    "dev": "concurrently 'yarn build --watch' 'yarn start:dev'",
-    "build": "tsc",
-    "start:dev": "nodemon -q dist/index.js",
+    "dev": "nodemon --config nodemond.json src/index.ts | pino-pretty -c -f",
+    "build": "tsc --build",
     "start": "node build/src/index.js",
     "prettier": "prettier --ignore-unknown --write 'src/**'",
     "eslint": "eslint --fix 'src/**'"
@@ -58,7 +57,10 @@
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
     "nodemon": "2.0.20",
+    "pino-pretty": "^9.1.1",
     "prettier": "2.7.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
     "webpack": "^5.74.0"
   }
 }
