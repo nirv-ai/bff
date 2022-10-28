@@ -15,3 +15,7 @@ export const PlayerJoinValidator = [
   isText("last"),
   isText("password"),
 ];
+
+export const PlayerPlayValidator = [isText("callsign"), isText("password")];
+
+export const PlayerGetValidator = [isText("callsign")];
