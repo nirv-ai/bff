@@ -9,11 +9,11 @@ const loggerOptions: Options = {
   useLevel: "info",
 
   autoLogging: {
-    ignore: (req) => false, // incase you want to SKIP logging for certain requests
+    ignore: (/*req*/) => false, // incase you want to SKIP logging for certain requests
   },
 
   // add custom props
-  customProps: (req, res) => ({
+  customProps: (/*req, res*/) => ({
     env: process.env.NODE_ENV,
   }),
 

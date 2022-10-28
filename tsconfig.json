@@ -5,6 +5,7 @@
     "excludeDirectories": ["**/node_modules", "**/.yarn", "**/.git", "**/build"]
   },
   "compilerOptions": {
+    "importHelpers": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "assumeChangesOnlyAffectDirectDependencies": true,
@@ -17,7 +18,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "error",
-    "incremental": true,
+    "incremental": false, // problems with cache or something
     "isolatedModules": true,
     "lib": ["esnext", "dom"],
     "module": "CommonJS",

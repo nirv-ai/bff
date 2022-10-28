@@ -1,10 +1,5 @@
 {
   "verbose": true,
-  "watch": [
-    "./src/**/*",
-    "package.json",
-    "tsconfig.json",
-    ".env",
-    "nodemon.json"
-  ]
+  "watch": ["src", "package.json", "tsconfig.json", ".env", "nodemon.json"],
+  "ext": "js, json"
 }

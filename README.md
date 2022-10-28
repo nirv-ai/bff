@@ -2,6 +2,9 @@
 
 ## core componets
 
+- typescript
+  - [tsc options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+  - [ts-node & nodemon blog](https://blog.logrocket.com/configuring-nodemon-with-typescript/)
 - [yarn](https://yarnpkg.com/getting-started/recipes)
   - make sure you read this to get the sdks & plugins
 - [express v 4](https://expressjs.com/en/starter/installing.html)
@@ -11,6 +14,7 @@
     - replacement for body-parser.json
   - [express urlencoded](https://expressjs.com/en/api.html#express.urlencoded)
     - replacement for body-parser.urlencoded
+  - [express error handling](https://expressjs.com/en/guide/error-handling.html)
 - [husky](https://github.com/typicode/husky)
   - on dev make sure to run `yarn exec husky install`
 - [postman](https://www.postman.com/downloads/)
@@ -22,8 +26,9 @@
 - [cookie parser](https://github.com/expressjs/cookie-parser)
   - [cookie](https://github.com/jshttp/cookie)
 - logger
-  - [pino logger](https://github.com/pinojs/pino/blob/master/docs/web.md#pino-with-express)
-  - [pino http logger](https://github.com/pinojs/pino-http#logger-options)
+  - [pino pretty](https://github.com/pinojs/pino-pretty)
+  - [pino](https://github.com/pinojs/pino/blob/master/docs/web.md#pino-with-express)
+  - [pino http](https://github.com/pinojs/pino-http#logger-options)
 - [express-validator](https://github.com/express-validator/express-validator)
   - [docs](https://express-validator.github.io/docs/)
   - [use schemas](https://express-validator.github.io/docs/schema-validation.html)
