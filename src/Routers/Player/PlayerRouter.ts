@@ -1,9 +1,11 @@
-import express from "express";
+import { Router } from "express";
 
-const router = express.Router();
+import { PlayerIndex, PlayerJoin, PlayerPlay } from "./Routes";
 
-router.get("/", (req, res) => {
-  res.send("player router index");
-});
+const router = Router();
+
+router.get("/", PlayerIndex);
+router.get("/join", PlayerJoin);
+router.get("/play", PlayerPlay);
 
 export const PlayerRouter = router;
