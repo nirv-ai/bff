@@ -8,7 +8,7 @@ const app: Express = express();
 addMiddleware(app);
 app.use("/v1/player", PlayerRouter);
 
-const port = process.env.PORT ?? 3001;
+const port = process.env.APP_PORT!;
 
 export const Server = () => {
   app.get("/", (req: Request, res: Response) => {

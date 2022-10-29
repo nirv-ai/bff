@@ -32,12 +32,17 @@
 - [express-validator](https://github.com/express-validator/express-validator)
   - [docs](https://express-validator.github.io/docs/)
   - [use schemas](https://express-validator.github.io/docs/schema-validation.html)
+- [pg-promise](https://vitaly-t.github.io/pg-promise/)
+  - [learn by example](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example)
+  - [pg_native](https://github.com/brianc/node-pg-native)
+    - read docs if your getting Error = Failed to initialize Native Bindings.
+      - sudo apt install libpq-dev g++ make
+      - yarn add pg-native
 
 ### TODO
 
 - [json web token](https://github.com/auth0/node-jsonwebtoken)
   - [good readme](https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs)
-- [pg-promise](https://vitaly-t.github.io/pg-promise/)
 - openapi
   - [swagger ui express](https://github.com/scottie1984/swagger-ui-express)
   - [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc)
