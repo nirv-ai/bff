@@ -1,13 +1,13 @@
 import express, { type Express, type Request, type Response } from "express";
 
-import { PlayerRouter } from "./Routers";
+import { PlayersRouter, PathsRouter } from "./Routers";
 import { addMiddleware } from "./Middleware";
 
 const app: Express = express();
 
 addMiddleware(app);
-app.use("/v1/player", PlayerRouter);
-
+app.use("/v1/players", PlayersRouter);
+app.use("/v1/paths", PathsRouter);
 const port = process.env.APP_PORT!;
 
 export const Server = () => {

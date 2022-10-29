@@ -19,3 +19,5 @@ export const PlayerJoinValidator = [
 export const PlayerPlayValidator = [isText("callsign"), isText("password")];
 
 export const PlayerGetValidator = [isText("callsign")];
+
+export const PathGetValidator = [isText("name")];
