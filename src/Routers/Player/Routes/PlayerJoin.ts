@@ -25,13 +25,19 @@ export const PlayerJoinRoute = async (req: Request, res: Response) => {
     values: [callsign, email, password, avatar, first, last, about],
   });
 
-  const newPlayer: PlayerDataType | null = await nirvDbCore.one(
-    createPlayerQuery
-  );
+  try {
+    const newPlayer: PlayerDataType | null = await nirvDbCore.one(
+      createPlayerQuery
+    );
 
-  if (!newPlayer) return res.status(400).json({});
+    if (!newPlayer) return res.status(400).json({});
 
-  const { password: ignorePassword, ...player } = newPlayer;
+    const { password: ignorePassword, ...player } = newPlayer;
 
-  return res.json({ player });
+    return res.json({ player });
+  } catch (err) {
+    req.log.error({ msg: "TODO: got unknown error", err });
+
+    return res.status(404).json({});
+  }
 };

@@ -20,14 +20,19 @@ export const PlayerPlayRoute = async (req: Request, res: Response) => {
     values: [callsign, password],
   });
 
-  // TODO: only get a single matching player
-  const foundPlayer: PlayerDataType | null = await nirvDbCore.oneOrNone(
-    loginPlayerQuery
-  );
+  try {
+    const foundPlayer: PlayerDataType | null = await nirvDbCore.oneOrNone(
+      loginPlayerQuery
+    );
 
-  if (!foundPlayer) return res.status(404).json({});
+    if (!foundPlayer) return res.status(404).json({});
 
-  const { password: ignorePassword, ...player } = foundPlayer;
+    const { password: ignorePassword, ...player } = foundPlayer;
 
-  return res.json({ player });
+    return res.json({ player });
+  } catch (err) {
+    req.log.error({ msg: "TODO: unknown error", err });
+
+    return res.status(404).json({});
+  }
 };

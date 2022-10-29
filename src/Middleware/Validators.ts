@@ -4,7 +4,7 @@ import { body } from "express-validator";
 // @see https://github.com/validatorjs/validator.js#sanitizers
 const isText = (field: string) => body(field).trim().escape().not().isEmpty();
 const isEmail = (field: string) => isText(field).isEmail().normalizeEmail();
-const isUrl = (field: string) => isText(field).isURL();
+const isUrl = (field: string) => body(field).trim().isURL();
 
 export const PlayerJoinValidator = [
   isEmail("email"),
