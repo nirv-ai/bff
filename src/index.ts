@@ -1,7 +1,5 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 
 import { Server } from "./App";
-
-dotenv.config();
 
 Server();

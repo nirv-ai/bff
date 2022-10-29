@@ -1,6 +1,8 @@
 import type { Request, Response } from "express";
 import { validationResult } from "express-validator";
 
+import type { PlayerDataType } from "../../../Types";
+
 export const PlayerJoinRoute = async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
@@ -10,15 +12,7 @@ export const PlayerJoinRoute = async (req: Request, res: Response) => {
   // TODO: we are just sending back whatever we receive
   await Promise.resolve();
 
-  const { password, ...player } = req.body as {
-    password: string;
-    callsign: string;
-    email: string;
-    avatar: string;
-    first: string;
-    last: string;
-    about: string;
-  };
+  const { password, ...player } = req.body as PlayerDataType;
 
   return res.json({ player });
 };
