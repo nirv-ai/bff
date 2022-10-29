@@ -1,20 +1,33 @@
 import type { Request, Response } from "express";
 import { validationResult } from "express-validator";
 
+import { nirvDbCore, createPgQuery } from "../../../Data";
+import type { PlayerDataType } from "../../../Types";
+
 export const PlayerPlayRoute = async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty())
     return res.status(400).json({ errors: errors.array() });
 
-  // TODO: we are just sending back whatever we receive
-  await Promise.resolve();
+  const { callsign, password } = req.body as PlayerDataType;
 
-  const { password, ...player } = req.body as {
-    password: string;
-    callsign: string;
-    email: string;
-  };
+  const loginPlayerQuery = createPgQuery({
+    text: `
+      select * from nirvai.players where
+        callsign = $1
+        and password = nirvai.crypt($2, password)`,
+    values: [callsign, password],
+  });
+
+  // TODO: only get a single matching player
+  const foundPlayer: PlayerDataType | null = await nirvDbCore.oneOrNone(
+    loginPlayerQuery
+  );
+
+  if (!foundPlayer) return res.status(404).json({});
+
+  const { password: ignorePassword, ...player } = foundPlayer;
 
   return res.json({ player });
 };
