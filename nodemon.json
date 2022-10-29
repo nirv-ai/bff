@@ -1,5 +1,6 @@
 {
   "verbose": true,
   "watch": ["src", "package.json", "tsconfig.json", ".env", "nodemon.json"],
-  "ext": "js, json"
+  "ext": "js, json",
+  "delay": 2500
 }

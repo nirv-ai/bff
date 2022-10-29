@@ -14,4 +14,4 @@ router.post("/", PlayerGetValidator, AsyncWrapper(PlayerGetRoute));
 router.post("/join", PlayerJoinValidator, AsyncWrapper(PlayerJoinRoute));
 router.post("/play", PlayerPlayValidator, AsyncWrapper(PlayerPlayRoute));
 
-export const PlayerRouter = router;
+export const PlayersRouter = router;
