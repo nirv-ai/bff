@@ -31,7 +31,7 @@ export const PlayerPlayRoute = async (req: Request, res: Response) => {
 
     return res.json({ player });
   } catch (err) {
-    req.log.error({ msg: "TODO: unknown error", err });
+    req.log.error({ errMsg: "TODO: unknown error", err });
 
     return res.status(404).json({});
   }

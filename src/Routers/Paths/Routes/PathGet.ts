@@ -10,19 +10,25 @@ export const PathGetRoute = async (req: Request, res: Response) => {
   if (!errors.isEmpty())
     return res.status(400).json({ errors: errors.array() });
 
-  const { name } = req.body as Pick<PathDataInterface, "name">;
+  try {
+    const { name } = req.params as Pick<PathDataInterface, "name">;
 
-  const getPathQuery = createPgQuery({
-    text: `select * from nirvai.paths where name = $1`,
-    values: [name],
-  });
+    const getPathQuery = createPgQuery({
+      text: `select * from nirvai.paths where name = $1`,
+      values: [name],
+    });
 
-  // TODO: only get a single matching player
-  const path: PathDataInterface | null = await nirvDbCore.oneOrNone(
-    getPathQuery
-  );
+    // TODO: only get a single matching player
+    const path: PathDataInterface | null = await nirvDbCore.oneOrNone(
+      getPathQuery
+    );
 
-  if (!path) return res.status(404).json({});
+    if (!path) throw new Error("not found");
 
-  return res.json({ path });
+    return res.json({ path });
+  } catch (err) {
+    req.log.error({ err });
+
+    return res.status(404).json({});
+  }
 };

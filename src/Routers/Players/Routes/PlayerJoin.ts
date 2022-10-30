@@ -10,11 +10,12 @@ export const PlayerJoinRoute = async (req: Request, res: Response) => {
   if (!errors.isEmpty())
     return res.status(400).json({ errors: errors.array() });
 
-  const { callsign, email, password, avatar, first, last, about } =
-    req.body as PlayerDataType;
+  try {
+    const { callsign, email, password, avatar, first, last, about } =
+      req.body as PlayerDataType;
 
-  const createPlayerQuery = createPgQuery({
-    text: `
+    const createPlayerQuery = createPgQuery({
+      text: `
       insert into nirvai.players (
         callsign, email, password, avatar, first, last, about
       ) values (
@@ -22,21 +23,20 @@ export const PlayerJoinRoute = async (req: Request, res: Response) => {
       )
       returning *
     `,
-    values: [callsign, email, password, avatar, first, last, about],
-  });
+      values: [callsign, email, password, avatar, first, last, about],
+    });
 
-  try {
     const newPlayer: PlayerDataType | null = await nirvDbCore.one(
       createPlayerQuery
     );
 
-    if (!newPlayer) return res.status(400).json({});
+    if (!newPlayer) throw new Error("invalid data");
 
     const { password: ignorePassword, ...player } = newPlayer;
 
     return res.json({ player });
   } catch (err) {
-    req.log.error({ msg: "TODO: got unknown error", err });
+    req.log.error({ errMsg: "TODO: got unknown error", err });
 
     return res.status(404).json({});
   }

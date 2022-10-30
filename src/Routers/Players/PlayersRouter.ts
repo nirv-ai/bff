@@ -10,7 +10,7 @@ import { AsyncWrapper } from "../AsyncWrapper";
 
 const router = Router();
 
-router.post("/", PlayerGetValidator, AsyncWrapper(PlayerGetRoute));
+router.get("/:callsign", PlayerGetValidator, AsyncWrapper(PlayerGetRoute));
 router.post("/join", PlayerJoinValidator, AsyncWrapper(PlayerJoinRoute));
 router.post("/play", PlayerPlayValidator, AsyncWrapper(PlayerPlayRoute));
 

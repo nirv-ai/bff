@@ -1,11 +1,12 @@
 import { Router } from "express";
 
-import { PathGetRoute } from "./Routes";
-import { PathGetValidator } from "../../Middleware";
+import { PathGetRoute, PathsGetRoute } from "./Routes";
+import { PathGetValidator, PathsGetValidator } from "../../Middleware";
 import { AsyncWrapper } from "../AsyncWrapper";
 
 const router = Router();
 
-router.post("/", PathGetValidator, AsyncWrapper(PathGetRoute));
+router.get("/", PathsGetValidator, AsyncWrapper(PathsGetRoute));
+router.get("/:name", PathGetValidator, AsyncWrapper(PathGetRoute));
 
 export const PathsRouter = router;
